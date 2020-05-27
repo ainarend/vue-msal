@@ -21,7 +21,8 @@ export type Auth = {
 }
 
 export type Request = {
-    scopes?: string[]
+    scopes?: string[],
+    forceRefresh?: boolean,
 }
 
 export type GraphDetailedObject = AxiosRequestConfig & {
