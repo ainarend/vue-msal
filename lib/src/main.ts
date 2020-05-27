@@ -99,7 +99,7 @@ export class MSAL implements MSALBasic {
         this.getStoredCustomData();
     }
     signIn() {
-        if (!this.lib.isCallback(window.location.hash) && !this.lib.getAccount()) {
+        if (this.request.forceRefresh || !this.lib.isCallback(window.location.hash) && !this.lib.getAccount()) {
             // request can be used for login or token request, however in more complex situations this can have diverging options
             this.lib.loginRedirect(this.request);
         }
